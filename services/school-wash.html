@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School WASH Solutions | Elphrods Services</title>
+    <link rel="stylesheet" href="services.css">
+
+    <script>
+        function updateLoanAmount(val) {
+            document.getElementById('loanAmountDisplay').textContent = `KES ${parseInt(val).toLocaleString()}`;
+            calculatePayment();
+        }
+        
+        function calculatePayment() {
+            const loanAmount = parseInt(document.getElementById('loanAmount').value);
+            const loanTerm = parseInt(document.getElementById('loanTerm').value);
+            const interestRate = 0.12;
+            
+            // Simple interest calculation
+            const interest = loanAmount * interestRate;
+            const monthlyPayment = (loanAmount + interest) / loanTerm;
+            
+            document.getElementById('monthlyPayment').textContent = Math.round(monthlyPayment).toLocaleString();
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Calculate initial payment
+            calculatePayment();
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ELPHRODS</div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#impact">Impact</a></li>
+                    <li><a href="../index.html#about">About Us</a></li>
+                    <li><a href="../blog/index.html">News</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <a href="../index.html#apply" class="cta-button">Apply for a Loan</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Service Types -->
+    <div class="service-types">
+        <div class="container">
+            <a href="household-wash.html" class="service-type">Household WASH</a>
+            <a href="school-wash.html" class="service-type active">School WASH</a>
+            <a href="community-wash.html" class="service-type">Community WASH</a>
+            <a href="business-wash.html" class="service-type">Business WASH</a>
+        </div>
+    </div>
+
+    <!-- Service Hero with Quick Stats -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-hero-content">
+                <h1>School WASH Financing</h1>
+                <p>Transform your school's water and sanitation infrastructure with our flexible financing solutions designed to improve hygiene and health for students</p>
+                <div class="quick-stats">
+                    <div class="stat">
+                        <span class="stat-value">50K</span>
+                        <span class="stat-label">Maximum Loan (KES)</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">24h</span>
+                        <span class="stat-label">Approval Time</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">12%</span>
+                        <span class="stat-label">Interest Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details -->
+    <section class="service-details">
+        <div class="container">
+            <div class="service-grid">
+                <!-- Sidebar -->
+                <aside class="service-sidebar">
+                    <div class="loan-calculator">
+                        <h3>Loan Calculator</h3>
+                        <form class="calculator-form">
+                            <div class="form-group">
+                                <label for="loanAmount">Loan Amount (KES)</label>
+                                <input type="range" id="loanAmount" min="5000" max="50000" step="5000" value="25000" oninput="updateLoanAmount(this.value)">
+                                <p id="loanAmountDisplay">KES 25,000</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="loanTerm">Loan Term</label>
+                                <select id="loanTerm" onchange="calculatePayment()">
+                                    <option value="6">6 months</option>
+                                    <option value="12" selected>12 months</option>
+                                    <option value="24">24 months</option>
+                                </select>
+                            </div>
+                            <div class="calculation-result">
+                                <p>Monthly Payment: <strong>KES <span id="monthlyPayment">2,625</span></strong></p>
+                            </div>
+                            <a href="../index.html#apply" class="btn btn-block">Apply Now</a>
+                        </form>
+                    </div>
+
+                    <div class="contact-box">
+                        <h3>Need Help?</h3>
+                        <p>Speak with our WASH financing experts</p>
+                        <a href="tel:+254796864084" class="phone-link">📞 0796 864 084</a>
+                        <a href="mailto:elphrods2020@gmail.com" class="email-link">✉️ elphrods2020@gmail.com</a>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <h3>Success Story</h3>
+                        <blockquote>
+                            "The WASH financing helped us install modern sanitation facilities, improving hygiene for our 500+ students. The process was fast and the repayment terms manageable for our school budget."
+                            <cite>- Jane Muthoni, School Principal</cite>
+                        </blockquote>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="service-main">
+                    <div class="content-tabs">
+                        <div class="tab-header">
+                            <button class="tab-btn active" data-tab="features">Features</button>
+                            <button class="tab-btn" data-tab="requirements">Requirements</button>
+                            <button class="tab-btn" data-tab="process">Process</button>
+                        </div>
+
+                        <div class="tab-content active" id="features">
+                            <div class="features-section">
+                                <h3>Key Features of School WASH Financing</h3>
+                                <div class="feature-list">
+                                    <div class="feature-item">
+                                        <div class="feature-icon">⏱️</div>
+                                        <div class="feature-content">
+                                            <h4>Flexible Repayment</h4>
+                                            <p>Choose a repayment period of 6, 12, or 24 months that works for your school's budget cycle</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <div class="feature-icon">💰</div>
+                                        <div class="feature-content">
+                                            <h4>Competitive Interest Rate</h4>
+                                            <p>Benefit from our affordable 12% interest rate with no hidden fees</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <div class="feature-icon">🎯</div>
+                                        <div class="feature-content">
+                                            <h4>Up to KSH 50,000</h4>
+                                            <p>Access substantial funding for comprehensive WASH infrastructure projects</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <div class="feature-icon">🏦</div>
+                                        <div class="feature-content">
+                                            <h4>Direct School Transfer</h4>
+                                            <p>Funds are transferred directly to your school account within 24 hours of approval</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                                        <div class="feature-content">
+                                            <h4>Improved Student Health</h4>
+                                            <p>Create a healthier learning environment with proper sanitation facilities</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <div class="feature-icon">👩‍🏫</div>
+                                        <div class="feature-content">
+                                            <h4>Technical Support</h4>
+                                            <p>Access to our network of certified WASH solution providers and technical experts</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="requirements">
+                            <div class="requirements-section">
+                                <h3>Application Requirements</h3>
+                                <div class="requirements-list">
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">📄</div>
+                                        <p>School registration certificate</p>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">🪪</div>
+                                        <p>School management board approval letter</p>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">📸</div>
+                                        <p>Photos of current WASH facilities</p>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">📱</div>
+                                        <p>Three months' bank statements</p>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">👥</div>
+                                        <p>School management committee guarantors</p>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">🧾</div>
+                                        <p>Quotation from approved WASH provider</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="process">
+                            <div class="process-steps">
+                                <div class="process-step">
+                                    <div class="step-number">1</div>
+                                    <h3>Apply Online</h3>
+                                    <p>Fill out our simple online application form with your school information</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">2</div>
+                                    <h3>Verification</h3>
+                                    <p>Our team reviews your application and documents within 24 hours</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">3</div>
+                                    <h3>Approval</h3>
+                                    <p>Receive loan approval and sign the financing agreement</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">4</div>
+                                    <h3>Disbursement</h3>
+                                    <p>Funds are transferred directly to your school account</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">5</div>
+                                    <h3>Implementation</h3>
+                                    <p>Work with our approved partners to implement your WASH solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>What WASH solutions can be financed with this loan?</h3>
+                    <p>Our school WASH financing can be used for water tanks, boreholes, toilets, handwashing stations, water purification systems, and other sanitation infrastructure.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long does the approval process take?</h3>
+                    <p>Most applications are processed within 24 hours, with funds disbursed to approved schools within 1-2 business days.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do we need to use specific contractors?</h3>
+                    <p>We have a network of certified WASH solution providers we recommend, but schools can also work with their preferred contractors who meet our quality standards.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is there a penalty for early repayment?</h3>
+                    <p>No, we encourage early repayment and do not charge any penalties or fees for settling your loan before the end of the term.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can private schools apply for this financing?</h3>
+                    <p>Yes, both public and private schools are eligible as long as they meet our basic requirements and documentation.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How are repayments structured?</h3>
+                    <p>Repayments are made in equal monthly installments through mobile money, bank transfer, or direct debit from your school account.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Elphrods Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#about">About Us</a></li>
+                        <li><a href="../index.html#impact">Impact</a></li>
+                        <li><a href="../blog/index.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Financing Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="household-wash.html">Household WASH</a></li>
+                        <li><a href="school-wash.html">School WASH</a></li>
+                        <li><a href="community-wash.html">Community WASH</a></li>
+                        <li><a href="business-wash.html">Business WASH</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>Eldoret, Kenya</li>
+                        <li>0796 864 084</li>
+                        <li>elphrods2020@gmail.com</li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#"><span>FB</span></a>
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>TW</span></a>
+                        <a href="#"><span>LI</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for updates on our services and WASH initiatives</p>
+                    <form class="newsletter">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Elphrods Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
