@@ -1,0 +1,22 @@
+[
+  {
+    "id": "wash-financing",
+    "name": "WASH Financing",
+    "description": "Articles about financing options for water and sanitation improvements."
+  },
+  {
+    "id": "success-stories",
+    "name": "Success Stories",
+    "description": "Case studies and success stories from our clients and partners."
+  },
+  {
+    "id": "market-insights",
+    "name": "Market Insights",
+    "description": "Analysis of the WASH sector market trends and opportunities."
+  },
+  {
+    "id": "announcements",
+    "name": "Announcements",
+    "description": "Company news, product updates, and partnership announcements."
+  }
+]

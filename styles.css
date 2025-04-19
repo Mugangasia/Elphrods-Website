@@ -1,0 +1,656 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #025B94;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-menu li {
+  margin-left: 25px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #025B94;
+}
+
+.cta-button {
+  background-color: #025B94;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #01426D;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #025B94 0%, #01426D 100%);
+  color: white;
+  padding: 80px 0;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-text {
+  width: 55%;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero-image {
+  width: 40%;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* How It Works Section */
+.how-it-works {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  color: #025B94;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.step-card {
+  width: 22%;
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.step-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #025B94;
+  margin-bottom: 15px;
+}
+
+.step-title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+/* Services Section */
+.services {
+  padding: 80px 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-image {
+  height: 200px;
+  background-color: #eee;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-content {
+  padding: 25px;
+}
+
+.service-content h3 {
+  color: #025B94;
+  margin-bottom: 15px;
+}
+
+.service-content ul {
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+.service-content ul li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 25px;
+}
+
+.service-content ul li:before {
+  content: "✓";
+  color: #025B94;
+  position: absolute;
+  left: 0;
+}
+
+/* Impact Section */
+.impact {
+  background-color: #f9f9f9;
+  padding: 80px 0;
+}
+
+.impact-stats {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.stat-item {
+  width: 30%;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #025B94;
+  margin-bottom: 10px;
+}
+
+.testimonials {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.testimonial-author {
+  font-weight: 600;
+}
+
+/* Why Choose Us Section */
+.why-choose {
+  padding: 80px 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #025B94;
+  margin-right: 15px;
+}
+
+.feature-content h3 {
+  margin-bottom: 10px;
+}
+
+/* News Section */
+.news {
+  background-color: #f9f9f9;
+  padding: 80px 0;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.news-item {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+}
+
+.news-content {
+  padding: 25px;
+}
+
+.news-meta {
+  margin: 15px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.news-category {
+  background: #E8F4FF;
+  color: #025B94;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.news-author {
+  color: #666;
+}
+
+.read-more {
+  color: #025B94;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.news-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* CTA Section */
+.cta {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #025B94;
+  color: white;
+  padding: 60px 0 30px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.footer-column {
+  width: 23%;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-column h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: white;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #cce5ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.social-icons {
+  display: flex;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 15px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.newsletter input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.newsletter button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #01426D;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+  background-color: #01355A;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 991px) {
+  .steps-container {
+    flex-wrap: wrap;
+  }
+  
+  .step-card {
+    width: 45%;
+    margin-bottom: 30px;
+  }
+  
+  .services-grid,
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero-content {
+    flex-direction: column;
+  }
+  
+  .hero-text,
+  .hero-image {
+    width: 100%;
+  }
+  
+  .hero-image {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .services-grid,
+  .news-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .step-card {
+    width: 100%;
+  }
+  
+  .impact-stats {
+    flex-direction: column;
+  }
+  
+  .stat-item {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .footer-content {
+    flex-wrap: wrap;
+  }
+  
+  .footer-column {
+    width: 48%;
+    margin-bottom: 30px;
+  }
+}
+
+/* Investors and Partners Section Styles */
+.investors-partners {
+    padding: 80px 0;
+    background-color: white;
+  }
+  
+  .partners-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+  }
+  
+  .partners-tabs {
+    margin-bottom: 40px;
+  }
+  
+  .tabs-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .tab-button {
+    background: none;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+  }
+  
+  .tab-button:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 0;
+    height: 3px;
+    background-color: #025B94;
+    transition: width 0.3s;
+  }
+  
+  .tab-button.active {
+    color: #025B94;
+  }
+  
+  .tab-button.active:after {
+    width: 50%;
+  }
+  
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  .partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .partner-logo {
+    width: 180px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    transition: transform 0.3s;
+  }
+  
+  .partner-logo:hover {
+    transform: translateY(-5px);
+  }
+  
+  .partner-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .partner-highlight {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 40px;
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .highlight-content h3 {
+    color: #025B94;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .highlight-content p {
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .text-link {
+    color: #025B94;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .text-link:hover {
+    color: #01426D;
+    text-decoration: underline;
+  }
+  
+  /* Add this script to make the tabs work */
+  @media screen and (max-width: 767px) {
+    .tabs-header {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .tab-button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .partner-logo {
+      width: 140px;
+      height: 70px;
+    }
+    
+    .partner-highlight {
+      padding: 25px;
+    }
+  }

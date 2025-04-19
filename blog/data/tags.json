@@ -1,0 +1,34 @@
+[
+  {
+    "id": "kisumu",
+    "name": "Kisumu"
+  },
+  {
+    "id": "schools",
+    "name": "Schools"
+  },
+  {
+    "id": "sanitation",
+    "name": "Sanitation"
+  },
+  {
+    "id": "impact-data",
+    "name": "Impact Data"
+  },
+  {
+    "id": "education",
+    "name": "Education"
+  },
+  {
+    "id": "market-analysis",
+    "name": "Market Analysis"
+  },
+  {
+    "id": "service-providers",
+    "name": "Service Providers"
+  },
+  {
+    "id": "business-opportunities",
+    "name": "Business Opportunities"
+  }
+]
