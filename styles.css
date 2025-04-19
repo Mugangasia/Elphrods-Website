@@ -1,4 +1,16 @@
-/* Global Styles */
+/* Brand Color Variables */
+:root {
+  --primary-blue: #00B6DE;    /* Light blue from logo */
+  --secondary-blue: #025B94;  /* Dark blue */
+  --accent-red: #E31E24;     /* Red from logo */
+  --accent-green: #39B54A;   /* Green from logo */
+  --text-dark: #333333;
+  --text-light: #666666;
+  --background-light: #F5FBFF;
+  --white: #FFFFFF;
+}
+
+/* Global Styles with Water Theme */
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +19,10 @@
 }
 
 body {
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
   line-height: 1.6;
+  background: var(--background-light) url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 60, 50 50 T 100 50 T 150 50" stroke="rgba(0,182,222,0.03)" fill="none" stroke-width="1"/></svg>');
 }
 
 .container {
@@ -17,10 +31,10 @@ body {
   padding: 0 20px;
 }
 
-/* Header Styles */
+/* Updated Header */
 header {
-  background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  box-shadow: 0 2px 10px rgba(0, 182, 222, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -36,7 +50,7 @@ header {
 .logo {
   font-size: 24px;
   font-weight: bold;
-  color: #025B94;
+  color: var(--white);
 }
 
 .nav-menu {
@@ -50,34 +64,64 @@ header {
 
 .nav-menu a {
   text-decoration: none;
-  color: #333;
+  color: var(--white);
   font-weight: 500;
+  position: relative;
   transition: color 0.3s;
 }
 
-.nav-menu a:hover {
-  color: #025B94;
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-green);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.nav-menu a:hover::after {
+  transform: scaleX(1);
 }
 
 .cta-button {
-  background-color: #025B94;
-  color: white;
+  background: var(--accent-green);
+  color: var(--white);
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s;
+  border: 2px solid transparent;
+  transition: all 0.3s;
 }
 
 .cta-button:hover {
-  background-color: #01426D;
+  background: var(--white);
+  color: var(--accent-green);
+  border-color: var(--accent-green);
 }
 
-/* Hero Section */
+/* Hero Section with Water Animation */
 .hero {
-  background: linear-gradient(135deg, #025B94 0%, #01426D 100%);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
   color: white;
   padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 60, 50 50 T 100 50 T 150 50" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/></svg>');
+  opacity: 0.1;
+  animation: wave 10s linear infinite;
 }
 
 .hero-content {
@@ -120,7 +164,9 @@ header {
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 50px;
-  color: #025B94;
+  color: var(--secondary-blue);
+  position: relative;
+  display: inline-block;
 }
 
 .steps-container {
@@ -141,7 +187,7 @@ header {
 .step-number {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #025B94;
+  color: var(--secondary-blue);
   margin-bottom: 15px;
 }
 
@@ -151,7 +197,7 @@ header {
   font-size: 1.2rem;
 }
 
-/* Services Section */
+/* Services Section with Water Theme */
 .services {
   padding: 80px 0;
 }
@@ -163,15 +209,17 @@ header {
 }
 
 .service-card {
-  background: white;
-  border-radius: 10px;
+  background: var(--white);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 182, 222, 0.1);
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s;
+  transition: all 0.3s;
 }
 
 .service-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 182, 222, 0.15);
 }
 
 .service-image {
@@ -190,7 +238,7 @@ header {
 }
 
 .service-content h3 {
-  color: #025B94;
+  color: var(--secondary-blue);
   margin-bottom: 15px;
 }
 
@@ -207,14 +255,14 @@ header {
 
 .service-content ul li:before {
   content: "✓";
-  color: #025B94;
+  color: var(--secondary-blue);
   position: absolute;
   left: 0;
 }
 
 /* Impact Section */
 .impact {
-  background-color: #f9f9f9;
+  background: var(--background-light);
   padding: 80px 0;
 }
 
@@ -230,9 +278,9 @@ header {
 }
 
 .stat-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #025B94;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-blue);
   margin-bottom: 10px;
 }
 
@@ -267,11 +315,20 @@ header {
 .feature-item {
   display: flex;
   align-items: flex-start;
+  background: var(--white);
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 182, 222, 0.1);
+  transition: transform 0.3s;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
 }
 
 .feature-icon {
-  font-size: 2rem;
-  color: #025B94;
+  font-size: 2.5rem;
+  color: var(--primary-blue);
   margin-right: 15px;
 }
 
@@ -293,9 +350,10 @@ header {
 
 .news-item {
   background: white;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 182, 222, 0.1);
   transition: transform 0.3s;
 }
 
@@ -310,23 +368,23 @@ header {
 .news-meta {
   margin: 15px 0;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--text-light);
 }
 
 .news-category {
-  background: #E8F4FF;
-  color: #025B94;
+  background: var(--accent-green);
+  color: var(--white);
   padding: 4px 8px;
   border-radius: 4px;
   margin-right: 10px;
 }
 
 .news-author {
-  color: #666;
+  color: var(--text-light);
 }
 
 .read-more {
-  color: #025B94;
+  color: var(--secondary-blue);
   text-decoration: none;
   font-weight: 600;
   display: inline-block;
@@ -355,9 +413,22 @@ header {
 
 /* Footer */
 footer {
-  background-color: #025B94;
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, #014B7A 100%);
   color: white;
   padding: 60px 0 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 60, 50 50 T 100 50 T 150 50" stroke="rgba(255,255,255,0.03)" fill="none" stroke-width="2"/></svg>');
+  opacity: 0.1;
 }
 
 .footer-content {
@@ -537,7 +608,7 @@ footer {
     padding: 12px 25px;
     font-size: 1rem;
     font-weight: 600;
-    color: #666;
+    color: var(--text-light);
     cursor: pointer;
     position: relative;
     transition: color 0.3s;
@@ -550,12 +621,12 @@ footer {
     left: 25%;
     width: 0;
     height: 3px;
-    background-color: #025B94;
+    background-color: var(--primary-blue);
     transition: width 0.3s;
   }
   
   .tab-button.active {
-    color: #025B94;
+    color: var(--primary-blue);
   }
   
   .tab-button.active:after {
@@ -586,6 +657,7 @@ footer {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 182, 222, 0.1);
     padding: 15px;
     transition: transform 0.3s;
   }
@@ -609,7 +681,7 @@ footer {
   }
   
   .highlight-content h3 {
-    color: #025B94;
+    color: var(--secondary-blue);
     margin-bottom: 15px;
     font-size: 1.4rem;
   }
@@ -622,7 +694,7 @@ footer {
   }
   
   .text-link {
-    color: #025B94;
+    color: var(--secondary-blue);
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s;
@@ -654,3 +726,9 @@ footer {
       padding: 25px;
     }
   }
+
+/* Animations */
+@keyframes wave {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Insights | Elphrods Services</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog.css">
+   
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ELPHRODS</div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#impact">Impact</a></li>
+                    <li><a href="../index.html#about">About Us</a></li>
+                    <li><a href="../index.html#news">News</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <a href="../index.html#apply" class="cta-button">Apply for a Loan</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <div class="container">
+            <h1>Latest News & Insights</h1>
+            <p>Stay informed about WASH financing, market trends, and success stories</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <!-- Filters -->
+            <div class="blog-filters">
+                <div class="filter-group">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="market-insights">Market Insights</option>
+                        <option value="success-stories">Success Stories</option>
+                        <option value="wash-financing">WASH Financing</option>
+                        <option value="announcements">Announcements</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="dateFilter">
+                        <option value="">All Dates</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/images/featured/kisumu-market-analysis.jpg" alt="Kisumu WASH Market Analysis">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">April 19, 2025</span>
+                            <span class="blog-category">Market Insights</span>
+                        </div>
+                        <h3>Kisumu's WASH Market: Opportunities and Challenges</h3>
+                        <p class="blog-excerpt">An in-depth analysis of Kisumu County's growing WASH sector, highlighting key opportunities for service providers...</p>
+                        <a href="posts/market-insights/kisumu-wash-market-opportunities-challenges-2025.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/images/featured/kisumu-school-wash.jpg" alt="School WASH Improvements">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">April 15, 2025</span>
+                            <span class="blog-category">Success Stories</span>
+                        </div>
+                        <h3>How Elphrods WASH Financing is Transforming Kisumu Schools</h3>
+                        <p class="blog-excerpt">Discover how affordable financing has helped 12 Kisumu schools improve their water and sanitation facilities...</p>
+                        <a href="posts/success-stories/elphrods-wash-financing-transforming-kisumu-schools.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Add more blog cards as needed -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <span class="page-link">...</span>
+                <a href="#" class="page-link">Next →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Elphrods Services</h3>
+                    <p>Empowering low-income communities with affordable WASH financing solutions since 2020.</p>
+                    <div class="social-icons">
+                        <a href="#">F</a>
+                        <a href="#">T</a>
+                        <a href="#">L</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#impact">Impact</a></li>
+                        <li><a href="../index.html#about">About Us</a></li>
+                        <li><a href="../index.html#news">News</a></li>
+                        <li><a href="../index.html#apply">Apply for a Loan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>Email: elphrods2020@gmail.com</li>
+                        <li>Call: 0796 864 084</li>
+                        <li>Visit: Manyatta Primary School, Bio-Centre First Floor</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Subscribe</h3>
+                    <p>Stay informed on WASH financing opportunities!</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2025 Elphrods Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple filter functionality
+        document.getElementById('categoryFilter').addEventListener('change', function() {
+            // Add filter logic here
+            console.log('Category filtered:', this.value);
+        });
+
+        document.getElementById('dateFilter').addEventListener('change', function() {
+            // Add filter logic here
+            console.log('Date filtered:', this.value);
+        });
+    </script>
+</body>
+</html>
