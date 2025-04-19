@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{post.title}} | Elphrods WASH Financing</title>
+    <meta name="description" content="{{post.excerpt}}">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../blog.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        // ...existing code...
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{post.featured_image}}')">
+        <div class="container">
+            <div class="blog-meta">
+                <div class="categories">
+                    {{#each post.categories}}
+                    <a href="/blog/categories/{{this}}" class="category-tag">{{this}}</a>
+                    {{/each}}
+                </div>
+                <h1>{{post.title}}</h1>
+                <div class="post-info">
+                    <span class="date">{{formatDate post.date}}</span>
+                    <span class="author">By {{post.author}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <article class="blog-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <!-- Main Content -->
+                <div class="main-content">
+                    {{post.content}}
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Author Info -->
+                    <div class="author-box">
+                        <img src="/blog/assets/authors/{{post.author}}.jpg" alt="{{post.author}}" class="author-image">
+                        <h3>{{post.author}}</h3>
+                        <p class="author-bio">{{author.bio}}</p>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="tags-box">
+                        <h3>Related Topics</h3>
+                        <div class="tags">
+                            {{#each post.tags}}
+                            <a href="/blog/tags/{{this}}" class="tag">{{this}}</a>
+                            {{/each}}
+                        </div>
+                    </div>
+
+                    <!-- Related Posts -->
+                    <div class="related-posts">
+                        <h3>Related Stories</h3>
+                        {{#each relatedPosts}}
+                        <a href="{{this.url}}" class="related-post">
+                            <img src="{{this.thumbnail}}" alt="{{this.title}}">
+                            <div class="related-post-content">
+                                <h4>{{this.title}}</h4>
+                                <span class="date">{{formatDate this.date}}</span>
+                            </div>
+                        </a>
+                        {{/each}}
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </article>
+
+    <!-- Call to Action -->
+    <section class="blog-cta">
+        <div class="container">
+            <h2>Transform Your WASH Infrastructure</h2>
+            <p>Get affordable financing for your water and sanitation projects</p>
+            <div class="cta-buttons">
+                <a href="/services" class="cta-button">Explore Solutions</a>
+                <a href="/contact" class="cta-button outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        // ...existing code...
+    </footer>
+</body>
+</html>
