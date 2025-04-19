@@ -3,12 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Household WASH Solutions | Elphrods Services</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>Business Loans | Elphrods Services</title>
     <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="../styles.css">
+
+    <script>
+        function updateLoanAmount(val) {
+            document.getElementById('loanAmountDisplay').textContent = `KES ${parseInt(val).toLocaleString()}`;
+            calculatePayment();
+        }
+        
+        function calculatePayment() {
+            const loanAmount = parseInt(document.getElementById('loanAmount').value);
+            const loanTerm = parseInt(document.getElementById('loanTerm').value);
+            const interestRate = 0.12;
+            
+            // Simple interest calculation
+            const interest = loanAmount * interestRate;
+            const monthlyPayment = (loanAmount + interest) / loanTerm;
+            
+            document.getElementById('monthlyPayment').textContent = Math.round(monthlyPayment).toLocaleString();
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Calculate initial payment
+            calculatePayment();
+        });
+    </script>
 </head>
 <body>
-    <!-- Header Navigation -->
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -25,12 +68,35 @@
         </div>
     </header>
 
-    <!-- Service Hero -->
+    <!-- Service Types -->
+    <div class="service-types">
+        <div class="container">
+            <a href="school-wash.html" class="service-type">Msingi Bora School Fees Loans</a>
+            <a href="community-wash.html" class="service-type">Water & Sanitation Loans</a>
+            <a href="business-loan.html" class="service-type active">SME & Business loans</a>
+        </div>
+    </div>
+
+    <!-- Service Hero with Quick Stats -->
     <section class="service-hero">
         <div class="container">
             <div class="service-hero-content">
-                <h1>Household WASH Financing</h1>
-                <p>Access affordable financing for clean water and sanitation solutions for your home</p>
+                <h1>Business Loans</h1>
+                <p>Grow your business with our flexible SME financing solutions, expert business advice, and competitive rates designed to help your enterprise thrive</p>
+                <div class="quick-stats">
+                    <div class="stat">
+                        <span class="stat-value">50K</span>
+                        <span class="stat-label">Maximum Loan (KES)</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">24h</span>
+                        <span class="stat-label">Approval Time</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">12%</span>
+                        <span class="stat-label">Interest Rate</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -39,55 +105,28 @@
     <section class="service-details">
         <div class="container">
             <div class="service-grid">
-                <div class="service-main">
-                    <h2>Transform Your Home's Water & Sanitation</h2>
-                    <p>Get the financing you need to install or upgrade your household's water and sanitation facilities. Our flexible loans help you create a healthier living environment for your family.</p>
-                    
-                    <div class="feature-list">
-                        <div class="feature-item">
-                            <div class="feature-icon">💧</div>
-                            <div class="feature-content">
-                                <h3>Water Solutions</h3>
-                                <p>Finance water tanks, pumps, and connection to main water lines</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">🚽</div>
-                            <div class="feature-content">
-                                <h3>Sanitation Facilities</h3>
-                                <p>Build or upgrade toilets and waste management systems</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">🌊</div>
-                            <div class="feature-content">
-                                <h3>Water Treatment</h3>
-                                <p>Install water filtration and purification systems</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+                <!-- Sidebar -->
                 <aside class="service-sidebar">
                     <div class="loan-calculator">
                         <h3>Loan Calculator</h3>
                         <form class="calculator-form">
                             <div class="form-group">
                                 <label for="loanAmount">Loan Amount (KES)</label>
-                                <input type="number" id="loanAmount" min="5000" max="500000" step="5000" value="50000">
+                                <input type="range" id="loanAmount" min="5000" max="50000" step="5000" value="25000" oninput="updateLoanAmount(this.value)">
+                                <p id="loanAmountDisplay">KES 25,000</p>
                             </div>
                             <div class="form-group">
-                                <label for="loanTerm">Loan Term (Months)</label>
-                                <select id="loanTerm">
+                                <label for="loanTerm">Loan Term</label>
+                                <select id="loanTerm" onchange="calculatePayment()">
                                     <option value="6">6 months</option>
                                     <option value="12" selected>12 months</option>
                                     <option value="24">24 months</option>
                                 </select>
                             </div>
                             <div class="calculation-result">
-                                <p>Monthly Payment: <strong>KES <span id="monthlyPayment">5,250</span></strong></p>
+                                <p>Monthly Payment: <strong>KES <span id="monthlyPayment">2,625</span></strong></p>
                             </div>
-                            <button type="button" class="cta-button">Apply Now</button>
+                            <a href="../index.html#apply" class="btn btn-block">Apply Now</a>
                         </form>
                     </div>
 
@@ -98,88 +137,259 @@
                         <a href="mailto:elphrods2020@gmail.com" class="email-link">✉️ elphrods2020@gmail.com</a>
                     </div>
                 </aside>
+
+                <!-- Main Content -->
+                <div class="service-main">
+                    <div class="content-tabs">
+                        <div class="tab-header">
+                            <button class="tab-btn active" data-tab="features">Features</button>
+                            <button class="tab-btn" data-tab="requirements">Requirements</button>
+                            <button class="tab-btn" data-tab="process">Process</button>
+                        </div>
+
+                        <div class="tab-content active" id="features">
+                            <div class="features-section">
+                                <h3>Key Features of Business Loans</h3>
+                                <div class="feature-list">
+                                    <div class="feature-item">
+                                        <div class="feature-icon">⏱️</div>
+                                        <div class="feature-content">
+                                            <h4>Flexible Repayment Period</h4>
+                                            <p>Choose a repayment schedule that works with your business cash flow</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <div class="feature-icon">💰</div>
+                                        <div class="feature-content">
+                                            <h4>Competitive Interest Rate</h4>
+                                            <p>A competitive interest rate is charged with transparent terms and no hidden fees</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <div class="feature-icon">👨‍💼</div>
+                                        <div class="feature-content">
+                                            <h4>Free Business Advice</h4>
+                                            <p>Access free business advice from experts and business developers to help your enterprise grow</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="requirements">
+                            <div class="requirements-section">
+                                <h3>Application Requirements</h3>
+                                <div class="requirements-list">
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">🪪</div>
+                                        <p>Copy of national I.D. and K.R.A Pin</p>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">📸</div>
+                                        <p>Passport-size copy for the applicant</p>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">📱</div>
+                                        <p>Two months' M-PESA statement or bank statement for both applicant & guarantor</p>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">👥</div>
+                                        <p>Must have 2 guarantors</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="process">
+                            <div class="process-steps">
+                                <div class="process-step">
+                                    <div class="step-number">1</div>
+                                    <h3>Apply Online</h3>
+                                    <p>Fill out our simple online application form with your school information</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">2</div>
+                                    <h3>Verification</h3>
+                                    <p>Our team reviews your application and documents within 24 hours</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">3</div>
+                                    <h3>Approval</h3>
+                                    <p>Receive loan approval and sign the financing agreement</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">4</div>
+                                    <h3>Disbursement</h3>
+                                    <p>Funds are transferred directly to your school account</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">5</div>
+                                    <h3>Implementation</h3>
+                                    <p>Work with our approved partners to implement your WASH solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="service-process">
+    <!-- Success Stories Section -->
+    <section class="success-stories">
         <div class="container">
-            <h2>How It Works</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Apply Online</h3>
-                    <p>Fill out our simple online application form</p>
+            <h2>Success Stories</h2>
+            <p class="section-intro">See how our WASH financing has transformed schools across Kisumu</p>
+            
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/VIDEO_ID_1" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-content">
+                        <h3>Transforming Manyatta Primary School</h3>
+                        <p>How WASH financing helped improve sanitation for 800+ students</p>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Quick Review</h3>
-                    <p>Get approved within 24 hours</p>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/VIDEO_ID_2" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-content">
+                        <h3>Clean Water at St. Mark's School</h3>
+                        <p>Installing modern water systems for better health</p>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Select Provider</h3>
-                    <p>Choose from our certified WASH service providers</p>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/VIDEO_ID_3" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-content">
+                        <h3>Improving Girls' Education</h3>
+                        <p>Better sanitation facilities increasing girls' attendance</p>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Installation</h3>
-                    <p>Get your WASH solutions installed</p>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/VIDEO_ID_4" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-content">
+                        <h3>Community Impact</h3>
+                        <p>How school WASH projects benefit entire communities</p>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>What WASH solutions can be financed with this loan?</h3>
+                <p>Our school WASH financing can be used for water tanks, boreholes, toilets, handwashing stations, water purification systems, and other sanitation infrastructure.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How long does the approval process take?</h3>
+                <p>Most applications are processed within 24 hours, with funds disbursed to approved schools within 1-2 business days.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Do we need to use specific contractors?</h3>
+                <p>We have a network of certified WASH solution providers we recommend, but schools can also work with their preferred contractors who meet our quality standards.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Is there a penalty for early repayment?</h3>
+                <p>No, we encourage early repayment and do not charge any penalties or fees for settling your loan before the end of the term.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can private schools apply for this financing?</h3>
+                <p>Yes, both public and private schools are eligible as long as they meet our basic requirements and documentation.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How are repayments structured?</h3>
+                <p>Repayments are made in equal monthly installments through mobile money, bank transfer, or direct debit from your school account.</p>
+            </div>
+        </div>
+    </div>
+</section>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <!-- Footer content same as main page -->
                 <div class="footer-column">
                     <h3>Elphrods Services</h3>
-                    <p>Empowering low-income communities with affordable WASH financing solutions since 2020.</p>
-                    <div class="social-icons">
-                      <a href="#">F</a>
-                      <a href="#">T</a>
-                      <a href="#">L</a>
-                    </div>
-                  </div>
-                  <div class="footer-column">
-                    <h3>Quick Links</h3>
                     <ul class="footer-links">
-                      <li><a href="#services">Our Services</a></li>
-                      <li><a href="#impact">Our Impact</a></li>
-                      <li><a href="#about">About Us</a></li>
-                      <li><a href="#news">News & Updates</a></li>
-                      <li><a href="#apply">Apply for a Loan</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#about">About Us</a></li>
+                        <li><a href="../index.html#impact">Impact</a></li>
+                        <li><a href="../blog/index.html">News</a></li>
                     </ul>
-                  </div>
-                  <div class="footer-column">
+                </div>
+                <div class="footer-column">
+                    <h3>Financing Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="household-wash.html">Household WASH</a></li>
+                        <li><a href="school-wash.html">School WASH</a></li>
+                        <li><a href="community-wash.html">Community WASH</a></li>
+                        <li><a href="business-wash.html">Business WASH</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                      <li>Email: elphrods2020@gmail.com</li>
-                      <li>Call: 0796 864 084</li>
-                      <li>Visit: Manyatta Primary School, Bio-Centre First Floor</li>
+                        <li>Eldoret, Kenya</li>
+                        <li>0796 864 084</li>
+                        <li>elphrods2020@gmail.com</li>
                     </ul>
-                  </div>
-                  <div class="footer-column">
-                    <h3>Subscribe</h3>
-                    <p>Stay informed on WASH financing opportunities!</p>
-                    <div class="newsletter">
-                      <input type="email" placeholder="Your email address">
-                      <button>Subscribe</button>
+                    <div class="social-icons">
+                        <a href="#"><span>FB</span></a>
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>TW</span></a>
+                        <a href="#"><span>LI</span></a>
                     </div>
-                  </div>
                 </div>
-                <div class="copyright">
-                  <p>Copyright © 2025 Elphrods Services. All rights reserved.</p>
+                <div class="footer-column">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for updates on our services and WASH initiatives</p>
+                    <form class="newsletter">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit">Subscribe</button>
+                    </form>
                 </div>
-              </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Elphrods Services. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <script src="services.js"></script>
 </body>
 </html>

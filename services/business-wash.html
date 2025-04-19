@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School WASH Solutions | Elphrods Services</title>
+    <title>SME & Business Loans | Elphrods Services</title>
     <link rel="stylesheet" href="services.css">
 
     <script>
@@ -11,40 +11,26 @@
             document.getElementById('loanAmountDisplay').textContent = `KES ${parseInt(val).toLocaleString()}`;
             calculatePayment();
         }
-        
         function calculatePayment() {
             const loanAmount = parseInt(document.getElementById('loanAmount').value);
             const loanTerm = parseInt(document.getElementById('loanTerm').value);
             const interestRate = 0.12;
-            
-            // Simple interest calculation
             const interest = loanAmount * interestRate;
             const monthlyPayment = (loanAmount + interest) / loanTerm;
-            
             document.getElementById('monthlyPayment').textContent = Math.round(monthlyPayment).toLocaleString();
         }
-        
         document.addEventListener('DOMContentLoaded', function() {
-            // Tab functionality
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabContents = document.querySelectorAll('.tab-content');
-            
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    // Remove active class from all buttons and contents
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Add active class to clicked button
                     button.classList.add('active');
-                    
-                    // Show corresponding content
                     const tabId = button.getAttribute('data-tab');
                     document.getElementById(tabId).classList.add('active');
                 });
             });
-            
-            // Calculate initial payment
             calculatePayment();
         });
     </script>
@@ -70,9 +56,9 @@
     <!-- Service Types -->
     <div class="service-types">
         <div class="container">
-            <a href="school-wash.html" class="service-type active">Msingi Bora School Fees Loans</a>
+            <a href="school-wash.html" class="service-type">Msingi Bora School Fees Loans</a>
             <a href="community-wash.html" class="service-type">Water & Sanitation Loans</a>
-            <a href="business-wash.html" class="service-type">SME & Business loans</a>
+            <a href="business-wash.html" class="service-type active">SME & Business loans</a>
         </div>
     </div>
 
@@ -80,8 +66,8 @@
     <section class="service-hero">
         <div class="container">
             <div class="service-hero-content">
-                <h1>Msingi Bora School Fees Loans </h1>
-                <p>Transform your school's water and sanitation infrastructure with our flexible financing solutions designed to improve hygiene and health for students</p>
+                <h1>SME & Business Loans</h1>
+                <p>Grow your business with our flexible SME financing solutions, expert business advice, and competitive rates designed to help your enterprise thrive</p>
                 <div class="quick-stats">
                     <div class="stat">
                         <span class="stat-value">50K</span>
@@ -131,7 +117,7 @@
 
                     <div class="contact-box">
                         <h3>Need Help?</h3>
-                        <p>Speak with our WASH financing experts</p>
+                        <p>Speak with our business financing experts</p>
                         <a href="tel:+254796864084" class="phone-link">📞 0796 864 084</a>
                         <a href="mailto:elphrods2020@gmail.com" class="email-link">✉️ elphrods2020@gmail.com</a>
                     </div>
@@ -148,48 +134,27 @@
 
                         <div class="tab-content active" id="features">
                             <div class="features-section">
-                                <h3>Key Features of School WASH Financing</h3>
+                                <h3>Key Features of Business Loans</h3>
                                 <div class="feature-list">
                                     <div class="feature-item">
                                         <div class="feature-icon">⏱️</div>
                                         <div class="feature-content">
-                                            <h4>Flexible Repayment</h4>
-                                            <p>Choose a repayment period of 6, 12, or 24 months that works for your school's budget cycle</p>
+                                            <h4>Flexible Repayment Period</h4>
+                                            <p>Choose a repayment schedule that works with your business cash flow</p>
                                         </div>
                                     </div>
                                     <div class="feature-item">
                                         <div class="feature-icon">💰</div>
                                         <div class="feature-content">
                                             <h4>Competitive Interest Rate</h4>
-                                            <p>Benefit from our affordable 12% interest rate with no hidden fees</p>
+                                            <p>A competitive interest rate is charged with transparent terms and no hidden fees</p>
                                         </div>
                                     </div>
                                     <div class="feature-item">
-                                        <div class="feature-icon">🎯</div>
+                                        <div class="feature-icon">👨‍💼</div>
                                         <div class="feature-content">
-                                            <h4>Up to KSH 50,000</h4>
-                                            <p>Access substantial funding for comprehensive WASH infrastructure projects</p>
-                                        </div>
-                                    </div>
-                                    <div class="feature-item">
-                                        <div class="feature-icon">🏦</div>
-                                        <div class="feature-content">
-                                            <h4>Direct School Transfer</h4>
-                                            <p>Funds are transferred directly to your school account within 24 hours of approval</p>
-                                        </div>
-                                    </div>
-                                    <div class="feature-item">
-                                        <div class="feature-icon">👨‍👩‍👧‍👦</div>
-                                        <div class="feature-content">
-                                            <h4>Improved Student Health</h4>
-                                            <p>Create a healthier learning environment with proper sanitation facilities</p>
-                                        </div>
-                                    </div>
-                                    <div class="feature-item">
-                                        <div class="feature-icon">👩‍🏫</div>
-                                        <div class="feature-content">
-                                            <h4>Technical Support</h4>
-                                            <p>Access to our network of certified WASH solution providers and technical experts</p>
+                                            <h4>Free Business Advice</h4>
+                                            <p>Access free business advice from experts and business developers to help your enterprise grow</p>
                                         </div>
                                     </div>
                                 </div>
@@ -201,28 +166,20 @@
                                 <h3>Application Requirements</h3>
                                 <div class="requirements-list">
                                     <div class="requirement-item">
-                                        <div class="requirement-icon">📄</div>
-                                        <p>School registration certificate</p>
-                                    </div>
-                                    <div class="requirement-item">
                                         <div class="requirement-icon">🪪</div>
-                                        <p>School management board approval letter</p>
+                                        <p>Copy of national I.D. and K.R.A Pin</p>
                                     </div>
                                     <div class="requirement-item">
                                         <div class="requirement-icon">📸</div>
-                                        <p>Photos of current WASH facilities</p>
+                                        <p>Passport-size copy for the applicant</p>
                                     </div>
                                     <div class="requirement-item">
                                         <div class="requirement-icon">📱</div>
-                                        <p>Three months' bank statements</p>
+                                        <p>Two months' M-PESA statement or bank statement for both applicant & guarantor</p>
                                     </div>
                                     <div class="requirement-item">
                                         <div class="requirement-icon">👥</div>
-                                        <p>School management committee guarantors</p>
-                                    </div>
-                                    <div class="requirement-item">
-                                        <div class="requirement-icon">🧾</div>
-                                        <p>Quotation from approved WASH provider</p>
+                                        <p>Must have 2 guarantors</p>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +210,7 @@
                                 <div class="process-step">
                                     <div class="step-number">5</div>
                                     <h3>Implementation</h3>
-                                    <p>Work with our approved partners to implement your WASH solutions</p>
+                                    <p>Work with our approved partners to implement your business solutions</p>
                                 </div>
                             </div>
                         </div>
@@ -267,7 +224,7 @@
     <section class="success-stories">
         <div class="container">
             <h2>Success Stories</h2>
-            <p class="section-intro">See how our WASH financing has transformed schools across Kisumu</p>
+            <p class="section-intro">See how our business financing has transformed enterprises across Kisumu</p>
             
             <div class="video-grid">
                 <div class="video-card">
@@ -339,28 +296,34 @@
             <h2>Frequently Asked Questions</h2>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h3>What WASH solutions can be financed with this loan?</h3>
-                    <p>Our school WASH financing can be used for water tanks, boreholes, toilets, handwashing stations, water purification systems, and other sanitation infrastructure.</p>
+                    <h3>What business expenses can be financed with this loan?</h3>
+                    <p>Our business financing can be used for inventory, equipment, marketing, expansion, working capital, and other business development needs.</p>
                 </div>
                 <div class="faq-item">
                     <h3>How long does the approval process take?</h3>
                     <p>Most applications are processed within 24 hours, with funds disbursed to approved schools within 1-2 business days.</p>
                 </div>
                 <div class="faq-item">
+                    <h3>>>> Do we need to use specific contractors?<<<<</h3>
+
+                <div class="faq-item">
                     <h3>Do we need to use specific contractors?</h3>
-                    <p>We have a network of certified WASH solution providers we recommend, but schools can also work with their preferred contractors who meet our quality standards.</p>
+                    <p>We have a network of certified business service providers we recommend, but businesses can also work with their preferred vendors who meet our quality standards.</p>
                 </div>
+
                 <div class="faq-item">
                     <h3>Is there a penalty for early repayment?</h3>
                     <p>No, we encourage early repayment and do not charge any penalties or fees for settling your loan before the end of the term.</p>
                 </div>
+
                 <div class="faq-item">
                     <h3>Can private schools apply for this financing?</h3>
                     <p>Yes, both public and private schools are eligible as long as they meet our basic requirements and documentation.</p>
                 </div>
+
                 <div class="faq-item">
                     <h3>How are repayments structured?</h3>
-                    <p>Repayments are made in equal monthly installments through mobile money, bank transfer, or direct debit from your school account.</p>
+                    <p>Repayments are made in equal monthly installments through mobile money, bank transfer, or direct debit from your business account.</p>
                 </div>
             </div>
         </div>

@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact | Elphrods Services</title>
+    <style>
+        /* Core Styles */
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #0d47a1;
+            --accent-color: #FFC107;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --success-color: #4CAF50;
+            --text-color: #333;
+            --light-text: #fff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        
+        .nav-menu li a {
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .nav-menu li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .cta-button {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+        
+        /* Theme Navigation Styles */
+        .theme-nav {
+            background-color: #fff;
+            position: sticky;
+            top: 70px;
+            z-index: 900;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .theme-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .theme-item {
+            padding: 15px 10px;
+            cursor: pointer;
+            position: relative;
+            flex: 1;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-item.active {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .theme-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .theme-item.active::after {
+            width: 100%;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: #eee;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2196F3 0%, #0d47a1 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .download-btn {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .download-btn:hover {
+            background-color: #e6ac00;
+            transform: translateY(-2px);
+        }
+        
+        /* Impact Section */
+        .impact-section {
+            padding: 80px 0;
+            min-height: 100vh;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .impact-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .impact-content {
+            padding: 25px;
+        }
+        
+        .impact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(33, 150, 243, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: var(--primary-color);
+        }
+        
+        .impact-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .impact-content p {
+            margin-bottom: 20px;
+        }
+        
+        .stat-highlight {
+            background-color: var(--light-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .stat-text {
+            font-size: 16px;
+        }
+        
+        .feature-list {
+            margin-top: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        /* Why It Matters Box */
+        .why-matters {
+            background-color: rgba(33, 150, 243, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-top: 30px;
+        }
+        
+        .why-matters h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Call to Action Section */
+        .cta-section {
+            background-color: var(--light-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+        }
+        
+        .report-downloads {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .report-btn {
+            padding: 12px 25px;
+            background-color: #fff;
+            color: var(--primary-color);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .report-btn:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            margin-top: 40px;
+        }
+        
+        .newsletter input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            font-size: 16px;
+        }
+        
+        .newsletter button {
+            padding: 0 25px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .newsletter button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            list-style: none;
+        }
+        
+        .footer-links li a,
+        .footer-links li {
+            color: #ccc;
+            transition: var(--transition);
+        }
+        
+        .footer-links li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .theme-list {
+                padding: 0 10px;
+            }
+            
+            .theme-item {
+                font-size: 14px;
+                padding: 15px 5px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .theme-list {
+                flex-wrap: wrap;
+            }
+            
+            .theme-item {
+                flex: 0 0 50%;
+            }
+            
+            .theme-nav {
+                top: 140px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-header h2 {
+                font-size: 28px;
+            }
+            
+            .stat-number {
+                font-size: 28px;
+            }
+            
+            .impact-content h3 {
+                font-size: 20px;
+            }
+            
+            .cta-section h2 {
+                font-size: 28px;
+            }
+            
+            .report-downloads {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .newsletter {
+                flex-direction: column;
+            }
+            
+            .newsletter input {
+                border-radius: var(--border-radius);
+                margin-bottom: 10px;
+            }
+            
+            .newsletter button {
+                border-radius: var(--border-radius);
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ELPHRODS</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="impact.html">Impact</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="blog/index.html">News</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <a href="index.html#apply" class="cta-button">Apply for a Loan</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Theme Navigation -->
+    <nav class="theme-nav">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <ul class="theme-list">
+            <li class="theme-item" data-target="health">Health & Hygiene</li>
+            <li class="theme-item" data-target="economic">Economic Empowerment</li>
+            <li class="theme-item" data-target="environmental">Environmental Sustainability</li>
+            <li class="theme-item" data-target="education">Education & Community</li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Building pathways to progress through WASH solutions</h1>
+            <p>Elphrods measures its impact across four key thematic areas, aligning with its mission of improving Water, Sanitation, and Hygiene (WASH) access in low-income communities.</p>
+            <a href="#" class="download-btn">Download 2025 Impact Report</a>
+        </div>
+    </section>
+
+    <!-- Health & Hygiene Section -->
+    <section id="health" class="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>01</h2>
+                <h2>Health & Hygiene Improvements</h2>
+                <p>We create sustainable health improvements through accessible financing for clean water and sanitation facilities, dramatically reducing waterborne diseases in underserved communities.</p>
+            </div>
+
+            <div class="stat-highlight">
+                <span class="stat-number">60%</span>
+                <span class="stat-text">reduction in waterborne disease cases in communities with Elphrods WASH financing</span>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">💧</div>
+                        <h3>Disease Reduction</h3>
+                        <p>Our monitoring shows significant decreases in cholera, dysentery, and other waterborne illnesses in households that have accessed our WASH loans.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>Reduced clinic visits for diarrheal diseases by 40%</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>Decreased child illness rates by 35% in target schools</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">🧼</div>
+                        <h3>Improved Sanitation</h3>
+                        <p>Access to proper sanitation facilities has transformed communities, bringing dignity and safety to residents.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>75% increase in households with handwashing facilities</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>2,500+ new toilets constructed in underserved areas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">🏥</div>
+                        <h3>Community Health Feedback</h3>
+                        <p>Local health workers report significant improvements in sanitation-related health indicators.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>90% of community health workers report positive trends</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>Reduced need for emergency water treatment during outbreaks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-matters">
+                <h4>Why It Matters</h4>
+                <p>Proving that WASH loans directly improve public health strengthens partnerships with NGOs and government agencies, allowing us to expand our reach and impact more communities in need.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economic Empowerment Section -->
+    <section id="economic" class="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>02</h2>
+                <h2>Economic Empowerment</h2>
+                <p>Our financing creates economic opportunities by reducing medical expenses and creating jobs in the WASH sector, contributing to local economic growth.</p>
+            </div>
+
+            <div class="stat-highlight">
+                <span class="stat-number">KES 15,000+</span>
+                <span class="stat-text">average annual household savings from reduced medical costs</span>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">💰</div>
+                        <h3>Household Savings</h3>
+                        <p>Families with access to clean water and proper sanitation experience significant financial relief through reduced healthcare costs.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>40% reduction in medical expenses related to waterborne diseases</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>Fewer workdays lost to illness, increasing household incomes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">🏪</div>
+                        <h3>SME Growth</h3>
+                        <p>Our loans have empowered WASH entrepreneurs to start and expand their businesses, creating lasting economic impact.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>200+ pit emptiers, plumbers, and water vendors funded</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>Average 45% income increase for WASH service providers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">👷</div>
+                        <h3>Job Creation</h3>
+                        <p>WASH projects create employment opportunities throughout the community.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>750+ new jobs created in our WASH service provider network</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>65% of these opportunities filled by local youth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-matters">
+                <h4>Why It Matters</h4>
+                <p>Our microloans strengthen local economies by boosting incomes, creating jobs, and freeing up household money that would otherwise be spent on treating preventable illnesses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Environmental Sustainability Section -->
+    <section id="environmental" class="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>03</h2>
+                <h2>Environmental Sustainability</h2>
+                <p>We promote environmentally responsible sanitation systems that protect local water sources and ecosystems, creating cleaner communities.</p>
+            </div>
+
+            <div class="stat-highlight">
+                <span class="stat-number">1,200+</span>
+                <span class="stat-text">pit latrines upgraded to environmentally safe systems</span>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">🌱</div>
+                        <h3>Safe Sanitation Systems</h3>
+                        <p>Our financing has enabled the transition from hazardous pit latrines to environmentally sound septic systems.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>Reduced groundwater contamination in target communities</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>Support for biodigester installations that produce renewable energy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">🚫</div>
+                        <h3>Reduced Pollution</h3>
+                        <p>Proper waste management facilities have significantly decreased environmental contamination.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>85% reduction in open defecation in target areas</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>70% decrease in illegal wastewater dumping</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">🚰</div>
+                        <h3>Clean Water Access</h3>
+                        <p>Our pipeline connection financing improves access to clean water while reducing pressure on vulnerable water sources.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>3 million+ gallons of clean water provided annually</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>Reduced strain on overtaxed community wells</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-matters">
+                <h4>Why It Matters</h4>
+                <p>Our environmental focus appeals to eco-conscious investors and aligns with SDGs, particularly SDG 6: Clean Water and Sanitation, making our mission globally relevant.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Community Resilience Section -->
+    <section id="education" class="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>04</h2>
+                <h2>Education & Community Resilience</h2>
+                <p>We strengthen communities by improving school attendance through better WASH facilities and creating safer, more dignified environments for all.</p>
+            </div>
+
+            <div class="stat-highlight">
+                <span class="stat-number">35%</span>
+                <span class="stat-text">increase in school attendance following WASH facility improvements</span>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">🏫</div>
+                        <h3>School Attendance</h3>
+                        <p>Improved school WASH facilities have led to dramatic improvements in student attendance and performance.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>50% fewer diarrhea-related absences in supported schools</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>Increased retention rates, especially for adolescent girls</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">📚</div>
+                        <h3>Msingi Bora Program</h3>
+                        <p>Our school-focused loans have transformed learning environments across the region.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>125 schools now with sustained water access</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>95% of schools reporting improved academic performance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-content">
+                        <div class="impact-icon">👪</div>
+                        <h3>Community Testimonials</h3>
+                        <p>Our work has transformed daily life for community members, especially women and girls.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>90% report improved dignity and safety</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <p>Women report saving 2+ hours daily previously spent collecting water</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-matters">
+                <h4>Why It Matters</h4>
+                <p>These long-term social returns on investment are critical for donor reporting and demonstrate the multigenerational impact of our WASH financing programs.</p>
+            </div>
+
+            <div class="why-matters">
+                <h4>Why It Matters</h4>
+                <p>These long-term social returns on investment are critical for donor reporting and demonstrate the multigenerational impact of our WASH financing programs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join Us in Making a Difference</h2>
+            <p>Our evidence-based approach to WASH financing is transforming communities across Kenya. Get involved by becoming a partner, investor, or spreading the word about our work.</p>
+            <a href="index.html#contact" class="cta-button">Partner With Us</a>
+            
+            <div class="report-downloads">
+                <a href="#" class="report-btn">2025 Impact Report</a>
+                <a href="#" class="report-btn">Case Studies</a>
+                <a href="#" class="report-btn">SDG Alignment Brief</a>
+            </div>
+            
+            <form class="newsletter">
+                <input type="email" placeholder="Enter your email for impact updates">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Elphrods Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="impact.html">Our Impact</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="blog/index.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>WASH Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Water Connection Loans</a></li>
+                        <li><a href="#">Sanitation Financing</a></li>
+                        <li><a href="#">School WASH Programs</a></li>
+                        <li><a href="#">WASH Business Loans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Impact Reports</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Apply for Financing</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul class="footer-links">
+                        <li>Nairobi, Kenya</li>
+                        <li>info@elphrods.com</li>
+                        <li>+254 700 123 456</li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Elphrods Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Scroll Progress and Theme Navigation -->
+    <script>
+        // Progress bar functionality
+        window.onscroll = function() {
+            updateProgressBar();
+            highlightCurrentSection();
+        };
+        
+        function updateProgressBar() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        }
+        
+        // Theme navigation functionality
+        function highlightCurrentSection() {
+            const sections = document.querySelectorAll('.impact-section');
+            const navItems = document.querySelectorAll('.theme-item');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-target') === current) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        // Smooth scrolling for theme navigation
+        document.querySelectorAll('.theme-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Initialize active section on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            highlightCurrentSection();
+        });
+    </script>
+</body>
+</html>

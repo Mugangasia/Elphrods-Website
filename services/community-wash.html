@@ -3,48 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School WASH Solutions | Elphrods Services</title>
+    <title>Community WASH Solutions | Elphrods Services</title>
     <link rel="stylesheet" href="services.css">
-
     <script>
         function updateLoanAmount(val) {
             document.getElementById('loanAmountDisplay').textContent = `KES ${parseInt(val).toLocaleString()}`;
             calculatePayment();
         }
-        
         function calculatePayment() {
             const loanAmount = parseInt(document.getElementById('loanAmount').value);
             const loanTerm = parseInt(document.getElementById('loanTerm').value);
             const interestRate = 0.12;
-            
-            // Simple interest calculation
             const interest = loanAmount * interestRate;
             const monthlyPayment = (loanAmount + interest) / loanTerm;
-            
             document.getElementById('monthlyPayment').textContent = Math.round(monthlyPayment).toLocaleString();
         }
-        
         document.addEventListener('DOMContentLoaded', function() {
-            // Tab functionality
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabContents = document.querySelectorAll('.tab-content');
-            
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    // Remove active class from all buttons and contents
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Add active class to clicked button
                     button.classList.add('active');
-                    
-                    // Show corresponding content
                     const tabId = button.getAttribute('data-tab');
                     document.getElementById(tabId).classList.add('active');
                 });
             });
-            
-            // Calculate initial payment
             calculatePayment();
         });
     </script>
@@ -70,18 +55,18 @@
     <!-- Service Types -->
     <div class="service-types">
         <div class="container">
-            <a href="school-wash.html" class="service-type active">Msingi Bora School Fees Loans</a>
-            <a href="community-wash.html" class="service-type">Water & Sanitation Loans</a>
-            <a href="business-wash.html" class="service-type">SME & Business loans</a>
+            <a href="school-wash.html" class="service-type">School WASH Loans</a>
+            <a href="community-wash.html" class="service-type active">Community WASH Loans</a>
+            <a href="business-wash.html" class="service-type">SME & Business Loans</a>
         </div>
     </div>
 
-    <!-- Service Hero with Quick Stats -->
+    <!-- Service Hero -->
     <section class="service-hero">
         <div class="container">
             <div class="service-hero-content">
-                <h1>Msingi Bora School Fees Loans </h1>
-                <p>Transform your school's water and sanitation infrastructure with our flexible financing solutions designed to improve hygiene and health for students</p>
+                <h1>Community WASH Financing</h1>
+                <p>Empower communities with clean water and sanitation through our accessible financing solutions</p>
                 <div class="quick-stats">
                     <div class="stat">
                         <span class="stat-value">50K</span>
@@ -128,7 +113,6 @@
                             <a href="../index.html#apply" class="btn btn-block">Apply Now</a>
                         </form>
                     </div>
-
                     <div class="contact-box">
                         <h3>Need Help?</h3>
                         <p>Speak with our WASH financing experts</p>
@@ -148,48 +132,34 @@
 
                         <div class="tab-content active" id="features">
                             <div class="features-section">
-                                <h3>Key Features of School WASH Financing</h3>
+                                <h3>Key Features of Community WASH Financing</h3>
                                 <div class="feature-list">
+                                    <div class="feature-item">
+                                        <div class="feature-icon">💧</div>
+                                        <div class="feature-content">
+                                            <h4>Wide Coverage</h4>
+                                            <p>Finance water tanks, boreholes, and community toilets for neighborhoods and villages</p>
+                                        </div>
+                                    </div>
                                     <div class="feature-item">
                                         <div class="feature-icon">⏱️</div>
                                         <div class="feature-content">
-                                            <h4>Flexible Repayment</h4>
-                                            <p>Choose a repayment period of 6, 12, or 24 months that works for your school's budget cycle</p>
+                                            <h4>Fast Approval</h4>
+                                            <p>Get decision within 24 hours and funds disbursed quickly</p>
                                         </div>
                                     </div>
                                     <div class="feature-item">
                                         <div class="feature-icon">💰</div>
                                         <div class="feature-content">
-                                            <h4>Competitive Interest Rate</h4>
-                                            <p>Benefit from our affordable 12% interest rate with no hidden fees</p>
+                                            <h4>Competitive Rates</h4>
+                                            <p>12% interest with transparent fees and flexible repayment</p>
                                         </div>
                                     </div>
                                     <div class="feature-item">
-                                        <div class="feature-icon">🎯</div>
+                                        <div class="feature-icon">👥</div>
                                         <div class="feature-content">
-                                            <h4>Up to KSH 50,000</h4>
-                                            <p>Access substantial funding for comprehensive WASH infrastructure projects</p>
-                                        </div>
-                                    </div>
-                                    <div class="feature-item">
-                                        <div class="feature-icon">🏦</div>
-                                        <div class="feature-content">
-                                            <h4>Direct School Transfer</h4>
-                                            <p>Funds are transferred directly to your school account within 24 hours of approval</p>
-                                        </div>
-                                    </div>
-                                    <div class="feature-item">
-                                        <div class="feature-icon">👨‍👩‍👧‍👦</div>
-                                        <div class="feature-content">
-                                            <h4>Improved Student Health</h4>
-                                            <p>Create a healthier learning environment with proper sanitation facilities</p>
-                                        </div>
-                                    </div>
-                                    <div class="feature-item">
-                                        <div class="feature-icon">👩‍🏫</div>
-                                        <div class="feature-content">
-                                            <h4>Technical Support</h4>
-                                            <p>Access to our network of certified WASH solution providers and technical experts</p>
+                                            <h4>Community Support</h4>
+                                            <p>Technical and operational guidance from WASH experts</p>
                                         </div>
                                     </div>
                                 </div>
@@ -202,27 +172,19 @@
                                 <div class="requirements-list">
                                     <div class="requirement-item">
                                         <div class="requirement-icon">📄</div>
-                                        <p>School registration certificate</p>
-                                    </div>
-                                    <div class="requirement-item">
-                                        <div class="requirement-icon">🪪</div>
-                                        <p>School management board approval letter</p>
+                                        <p>Community registration documents</p>
                                     </div>
                                     <div class="requirement-item">
                                         <div class="requirement-icon">📸</div>
-                                        <p>Photos of current WASH facilities</p>
-                                    </div>
-                                    <div class="requirement-item">
-                                        <div class="requirement-icon">📱</div>
-                                        <p>Three months' bank statements</p>
-                                    </div>
-                                    <div class="requirement-item">
-                                        <div class="requirement-icon">👥</div>
-                                        <p>School management committee guarantors</p>
+                                        <p>Photos of existing water and sanitation facilities</p>
                                     </div>
                                     <div class="requirement-item">
                                         <div class="requirement-icon">🧾</div>
-                                        <p>Quotation from approved WASH provider</p>
+                                        <p>Three months of community bank statements</p>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <div class="requirement-icon">👥</div>
+                                        <p>At least two guarantors</p>
                                     </div>
                                 </div>
                             </div>
@@ -233,134 +195,31 @@
                                 <div class="process-step">
                                     <div class="step-number">1</div>
                                     <h3>Apply Online</h3>
-                                    <p>Fill out our simple online application form with your school information</p>
+                                    <p>Fill out our easy application form with community details</p>
                                 </div>
                                 <div class="process-step">
                                     <div class="step-number">2</div>
-                                    <h3>Verification</h3>
-                                    <p>Our team reviews your application and documents within 24 hours</p>
+                                    <h3>Review & Verification</h3>
+                                    <p>We assess your documents and community needs</p>
                                 </div>
                                 <div class="process-step">
                                     <div class="step-number">3</div>
                                     <h3>Approval</h3>
-                                    <p>Receive loan approval and sign the financing agreement</p>
+                                    <p>Sign the agreement and prepare for disbursement</p>
                                 </div>
                                 <div class="process-step">
                                     <div class="step-number">4</div>
                                     <h3>Disbursement</h3>
-                                    <p>Funds are transferred directly to your school account</p>
+                                    <p>Funds are released directly to your designated account</p>
                                 </div>
                                 <div class="process-step">
                                     <div class="step-number">5</div>
                                     <h3>Implementation</h3>
-                                    <p>Work with our approved partners to implement your WASH solutions</p>
+                                    <p>Work with certified providers to build and maintain infrastructure</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Success Stories Section -->
-    <section class="success-stories">
-        <div class="container">
-            <h2>Success Stories</h2>
-            <p class="section-intro">See how our WASH financing has transformed schools across Kisumu</p>
-            
-            <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/VIDEO_ID_1" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="video-content">
-                        <h3>Transforming Manyatta Primary School</h3>
-                        <p>How WASH financing helped improve sanitation for 800+ students</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/VIDEO_ID_2" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="video-content">
-                        <h3>Clean Water at St. Mark's School</h3>
-                        <p>Installing modern water systems for better health</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/VIDEO_ID_3" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="video-content">
-                        <h3>Improving Girls' Education</h3>
-                        <p>Better sanitation facilities increasing girls' attendance</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/VIDEO_ID_4" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="video-content">
-                        <h3>Community Impact</h3>
-                        <p>How school WASH projects benefit entire communities</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>What WASH solutions can be financed with this loan?</h3>
-                    <p>Our school WASH financing can be used for water tanks, boreholes, toilets, handwashing stations, water purification systems, and other sanitation infrastructure.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>How long does the approval process take?</h3>
-                    <p>Most applications are processed within 24 hours, with funds disbursed to approved schools within 1-2 business days.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Do we need to use specific contractors?</h3>
-                    <p>We have a network of certified WASH solution providers we recommend, but schools can also work with their preferred contractors who meet our quality standards.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Is there a penalty for early repayment?</h3>
-                    <p>No, we encourage early repayment and do not charge any penalties or fees for settling your loan before the end of the term.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Can private schools apply for this financing?</h3>
-                    <p>Yes, both public and private schools are eligible as long as they meet our basic requirements and documentation.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>How are repayments structured?</h3>
-                    <p>Repayments are made in equal monthly installments through mobile money, bank transfer, or direct debit from your school account.</p>
                 </div>
             </div>
         </div>
